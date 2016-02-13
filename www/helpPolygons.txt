@@ -1,0 +1,6 @@
+This tab is used to set the parameters of the polygons used to represent each amino acid residue in both projections. The options are all available by group, and a pretty straightforward.
+
+The Pattern tab is only meaningful for circles, and is used to add lines to them, which can be specially useful for black and white images. 
+
+Colors are set using hexadecimal codes, which can be easily created from the color picker. This is also valid for every other color option used in the application.
+

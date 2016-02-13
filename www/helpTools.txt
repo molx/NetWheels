@@ -1,0 +1,3 @@
+The Tools tab currently has only one tool, which is exporting the current parameters to a text file that can be locally stored by the user. This allows you to load the parameters used once to create a new projection with the same design, or maybe just change a couple of details.
+
+Unfortunately, this option can be very sensitive to updates, specially if a parameter is removed (probably split). Yet, we try not to change too much in order to maitain backwards compatibility. 

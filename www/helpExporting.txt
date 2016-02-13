@@ -1,0 +1,3 @@
+The Exporting feature is one of the main advantages of the NetWheels application. Even though you can simply right-click the image and save it, this feature allows you to export the projection in high quality, with high resolution, to different formats.
+
+The PDF format can be edited on software with read this type of file, like Adobe's Photoshop and Illustrator. 

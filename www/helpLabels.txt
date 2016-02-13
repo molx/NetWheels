@@ -1,0 +1,5 @@
+The Labels are the characters printed on top or around the polygons with information regarding which amino acid it represents. 
+
+Labels can be set in different styles, including combinations of the peptide position and code. One useful feature is the ability to add an offset to the position counter. By default, the positions start at 1, but this can be changed in order to use the real positiong regarding the whole peptide or protein sequence.
+
+Two tabs are available here. The Amino acids tab can be considered a primary tab, with all labels styles available. If separate display of the residues and the position is desired, this can be achived by using the Position tab.

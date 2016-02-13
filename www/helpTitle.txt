@@ -1,0 +1,3 @@
+A title can be added to both projections, but it's rather limited in terms of length and color.
+
+Positioning on the wheel projection is rather easy, but not so much on the Net projection, since it's size varies according to the number of residues. Regardless, the positions can be adjusted with the x and y selectors of each projection.

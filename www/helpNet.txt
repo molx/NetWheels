@@ -1,0 +1,7 @@
+This tab offers options specific to the Net projection. 
+
+The buttons allow for easy switch between common helices, but all they do is change the Residues per turn value. The x-axis position of the first amino acid will vary according to the number of residues, but it can be ajusted using the Start Offset input.
+
+The Show Border option adds a vertical line indicating the position along the central helix axis where the cut was done for the projection. This can be very illustrative if Padding Horizontal is greater than 0, otherwise it might look like there are more residues than on reality. 
+
+Changes to the paddings will cause the polygons to have non proportional dimensions. If that's the case, the Proportion Factor input can be adjusted to make them look good again.

@@ -1,0 +1,8 @@
+The groups tab can be used to change how amino acids are divided into 5 different groups.
+
+The default approach considers all residues inside one of the 4 groups according to polarity and acidity, and one extra group for unknown residues. This can be changed, however, as needed. For instance, it can be considered that Glycine is a special case, given it's minimum side-chain, instead of a nonpolar residue. This can't be used simultaneously with a Unkown Residue group, however.
+
+Note that all characters used in the sequence MUST be located in one of the 5 groups, or the projection will not be generated. Whitespaces, albeit discouraged, are allowed.
+
+This tab also allows the definitions of possible interactions between residues, which are on of the main features of the Net projection. Nonpolar and hydrogen-bonding residues interact with residues of the same type, while Acid/Basic residues will interact with each other. Again, this can be used for different meanings, as long as the interactions pairs are maintained (Nonpolar/nonpolar, H/H, Acid/Basic). 
+

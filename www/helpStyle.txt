@@ -1,0 +1,3 @@
+This tab offers buttons to change some parameters quickly at once, without having to change multiple values. 
+
+For example, all polygons shape can be changed to Circles, or the Label Style considering all possibilites. 
