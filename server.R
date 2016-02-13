@@ -1152,7 +1152,7 @@ shinyServer(function(input, output, session) {
       ImgFormat <- input$expFormat
       if (ImgFormat == "PNG") {
         png(file, res = dpi, width = dims[1], height = dims[2])
-      } else if (ImgFormat == "TIFF") {
+      } else if (ImgFormat == "TIFF (lzw)") {
         tiff(file, compression = "lzw", res = dpi, width = dims[1], height = dims[2])
       } else if (ImgFormat == "PDF") {
         pdf(file, width = getWidth()/72, height = getHeight()/72)
