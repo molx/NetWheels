@@ -1127,7 +1127,7 @@ shinyServer(function(input, output, session) {
       dims <- as.numeric(dpi)*c(input$figWd, 600)/72
       if (input$expFormat == "PNG") {
         png(file, res = dpi, width = dims[1], height = dims[2])
-      } else if (input$expFormat == "TIFF (lzw)") {
+      } else if (input$expFormat == "TIFF") {
         tiff(file, compression = "lzw", res = dpi, width = dims[1], height = dims[2])
       } else if (input$expFormat == "PDF") {
         pdf(file, width = input$figWd/72, height = 600/72)
@@ -1152,7 +1152,7 @@ shinyServer(function(input, output, session) {
       ImgFormat <- input$expFormat
       if (ImgFormat == "PNG") {
         png(file, res = dpi, width = dims[1], height = dims[2])
-      } else if (ImgFormat == "TIFF (lzw)") {
+      } else if (ImgFormat == "TIFF") {
         tiff(file, compression = "lzw", res = dpi, width = dims[1], height = dims[2])
       } else if (ImgFormat == "PDF") {
         pdf(file, width = getWidth()/72, height = getHeight()/72)

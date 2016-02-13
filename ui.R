@@ -871,7 +871,7 @@ shinyUI(fixedPage(
                         tabPanel("Export",
                                  helpText("Export Options", style = subtitlesStyle),
                                  selectInput(inputId = "expFormat", label = "Format",
-                                             choices = c("PNG", "TIFF (lzw)", "PDF", "JPG"), selected = "PNG"),
+                                             choices = c("PNG", "TIFF", "PDF", "JPG"), selected = "PNG"),
                                  selectInput(inputId = "expDPI", label = "DPI",
                                              choices = c(72, 150, 300, 600), selected = "72"),
                                  fixedRow(
