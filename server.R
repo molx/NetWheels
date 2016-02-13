@@ -1148,14 +1148,14 @@ shinyServer(function(input, output, session) {
     },
     content = function(file) {
       dpi <- input$expDPI
-      dims <- as.numeric(dpi)*c(300, getHeight())/72
+      dims <- as.numeric(dpi)*c(getWidth(), getHeight())/72
       ImgFormat <- input$expFormat
       if (ImgFormat == "PNG") {
         png(file, res = dpi, width = dims[1], height = dims[2])
       } else if (ImgFormat == "TIFF") {
         tiff(file, compression = "lzw", res = dpi, width = dims[1], height = dims[2])
       } else if (ImgFormat == "PDF") {
-        pdf(file, width = 300/72, height = getHeight()/72)
+        pdf(file, width = getWidth()/72, height = getHeight()/72)
       } else if (ImgFormat == "JPG") {
         jpeg(file, res = dpi, width = dims[1], height = dims[2], quality = 100)
       }
