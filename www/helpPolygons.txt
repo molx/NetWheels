@@ -4,3 +4,4 @@ The Pattern tab is only meaningful for circles, and is used to add lines to them
 
 Colors are set using hexadecimal codes, which can be easily created from the color picker. This is also valid for every other color option used in the application.
 
+The Size parameter defines the size of the biggest polygon of the projection. The ratio between the size of first and the last polygon is defined by the First/Last Ratio. Thus, a First/Last Ratio of 0.1 means that the the first polygon will have approximately 10% of the area of the last one, and a Ratio of 2 will lead to the first polygon being twice as big as the last.

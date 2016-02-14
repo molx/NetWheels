@@ -1,6 +1,6 @@
 This options are esclusive of the Wheel projection.
 
-Connection Lines are the lines that go from one polygon to the other, following the peptide sequence. This lines can have their width and gray range adjusted.
+Connection Lines are the lines that go from one polygon to the other, following the peptide sequence. These lines can have their width and gray range adjusted.
 
 The Spiral Factor determines if every polygon should be a little closer to the center of the circle than the one before it, organizing them over a spiral, instead of a circle. The Nesting Factor regards the distance between circles (or spirals) if more residues than 18 (or Period) are present. 
 

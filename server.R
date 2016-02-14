@@ -225,7 +225,7 @@ shinyServer(function(input, output, session) {
     
     shp <- c(input$shp1, input$shp2, input$shp3, input$shp4, input$shp5)
     cores <- c(input$col1, input$col2, input$col3, input$col4, input$col5)
-    bordersShow <- c(input$circBorder1, input$circBorder1,
+    bordersShow <- c(input$circBorder1, input$circBorder2,
                      input$circBorder3, input$circBorder4, input$circBorder5)
     
     if (any(bordersShow == "Yes")) {
@@ -359,7 +359,7 @@ shinyServer(function(input, output, session) {
       angs.pattern <- styles.angs[match(styles, names(styles.angs))]
       for (i in seq_len(nres)) {
         if (!is.na(styles[i]) && styles[i] != "n" && shapes[i] == "Circle") {
-          circStripes(r = l, n = nFills[i],
+          circStripes(r = l*l.prop[i], n = nFills[i],
                       x = ptx[i], y = pty[i],
                       angle = angs.pattern[i], col = fillCol[i])
         }
@@ -375,10 +375,25 @@ shinyServer(function(input, output, session) {
          cex = input$labCex/10, font = as.numeric(input$labFont),
          col = numLabs[fills])
     
+    # Adding number labels
+    
+    if (input$numShow == "Net" || input$numShow == "Both") {
+      numOffY <- input$numOffY
+      numOffX <- -input$numOffX
+      
+      numCols <- c(input$numCol1, input$numCol2, input$numCol3, input$numCol4, input$numCol5)
+      
+      text(ptx - l*(sign(numOffX))*l.prop - numOffX, 
+           pty - l*(sign(numOffY))*l.prop - numOffY, 
+           labels = ptn + input$numOffPos, cex = input$numCex/10, 
+           font = as.numeric(input$numFont),
+           col = numCols[fills]) 
+    }
+    
     ### Adding a white rectangular to cover residues plotted outside of the region of interest
     
-    polygon(x = c(diameter + marr, diameter + marr + netwd, diameter + marr + netwd, diameter + marr),
-            y = c(ymax+trans+padtop, ymax+trans+padtop, min(ny)-trans-padbot, min(ny)-trans-padbot),
+    polygon(x = c(diameter + marr, diameter + marr + netwd - 0.05, diameter + marr + netwd - 0.05, diameter + marr),
+            y = c(ymax + trans + padtop - 0.05, ymax + trans + padtop - 0.05, min(ny) - trans - padbot, min(ny) - trans-padbot),
             col = "white", border = NA)
     
     
@@ -388,7 +403,7 @@ shinyServer(function(input, output, session) {
     grpSplit <- split(getAmin(), gethb())
     groupsPresent <- sapply(grpSplit, function(gp) any(strsplit(pepSeq, "")[[1]] %in% gp))
     
-    if (input$showLeg == "Yes") {
+    if (input$showLegNet == "Yes") {
       legLab <- c(input$leg1, input$leg2, input$leg3, input$leg4, input$leg5)[groupsPresent]
       legFill <- c(input$col1, input$col2, input$col3, input$col4, input$col5)[groupsPresent]
       #       if (!grepl("X", pepSeq)) {
@@ -398,8 +413,8 @@ shinyServer(function(input, output, session) {
       
       # Defining a legend function to avoid repeating the same arguments below if necessary
       
-      my.leg <- function(...) legend(x = diameter + input$legX*5 - 4, 
-                                     y = ymax+trans+padtop + input$legY*5 - 5.5, 
+      my.leg <- function(...) legend(x = diameter + input$legXNet, 
+                                     y = ymax+trans+padtop + input$legYNet, 
                                      legend = legLab,
                                      bty = "n", yjust = 0.5, cex = as.numeric(input$legCex)/10, ...)
       
@@ -601,7 +616,7 @@ shinyServer(function(input, output, session) {
     # This matches which circle is of which category to properly select the colors and grid styles
     fills <- hb[match(res, amin)]
     
-    bordersShow <- c(input$circBorder1, input$circBorder1,
+    bordersShow <- c(input$circBorder1, input$circBorder2,
                      input$circBorder3, input$circBorder4, input$circBorder5)
     
     if (any(bordersShow == "Yes")) {
@@ -693,7 +708,7 @@ shinyServer(function(input, output, session) {
     
     # Adding the residues number
     
-    if (input$numShow == "Yes") {
+    if (input$numShow == "Wheel" || input$numShow == "Both") {
       numOffY <- input$numOffY
       numOffX <- -input$numOffX
       
@@ -819,6 +834,38 @@ shinyServer(function(input, output, session) {
     updateTextInput(session, "grpBasic", value = "RHK")
   })
   
+  
+  
+  
+  grpUpdate <- function(newGrps) {
+      for (i in 1:5) {
+        shinyjs::updateColourInput(session, paste0("numCol", i), label = newGrps[i])
+        updateTextInput(session, paste0("leg", i), label = newGrps[i])
+        updateNumericInput(session, paste0("legDen", i), label = newGrps[i])
+        updateSelectInput(session, paste0("grp", i), label = newGrps[i])
+        updateSelectInput(session, paste0("shp", i), label = newGrps[i])
+        shinyjs::updateColourInput(session, paste0("col", i), label = newGrps[i])
+        updateSelectInput(session, paste0("circBorder", i), label = newGrps[i])
+        shinyjs::updateColourInput(session, paste0("labCol", i), label = newGrps[i])
+        updateSelectInput(session, paste0("fill", i), label = newGrps[i])
+      }
+  }
+  
+  observeEvent(input$grpUpdUi, {
+    grpUpdate(c(input$grp1Lab, input$grp2Lab, input$grp3Lab, input$grp4Lab, input$grp5Lab))
+  })
+  
+  observeEvent(input$grpLabDefault, {
+    defaults <- c("Polar / Basic", "Polar / Acidic", "Polar / Uncharged", "Nonpolar", "Unkown Residue")
+    for (i in 1:5) updateTextInput(session, paste0("grp", i, "Lab"), value = defaults[i])
+    grpUpdate(defaults)
+  })
+  
+  observeEvent(input$grpLabToLeg, {
+    for (i in 1:5) updateTextInput(session, paste0("leg", i), value = input[[paste0("grp", i, "Lab")]])
+  })
+  
+  
   observeEvent(input$netAutoMar, {
     nc <- nchar(input$seq)
     updateNumericInput(session, "yTitleNet", value = round(nc*0.51+0.5, 1))
@@ -831,7 +878,7 @@ shinyServer(function(input, output, session) {
     shinyjs::updateColourInput(session = session, inputId = "circBorderCol1", value = "#000000")
     shinyjs::updateColourInput(session = session, inputId = "labCol1", value = "#FFFFFF")
     shinyjs::updateColourInput(session = session, inputId = "col2", value = "gray30")
-    updateTextInput(session = session, inputId = "circBorder1", value = "No")
+    updateTextInput(session = session, inputId = "circBorder2", value = "No")
     shinyjs::updateColourInput(session = session, inputId = "circBorderCol2", value = "#000000")
     shinyjs::updateColourInput(session = session, inputId = "labCol2", value = "#FFFFFF")
     shinyjs::updateColourInput(session = session, inputId = "col3", value = "gray50")
@@ -855,7 +902,7 @@ shinyServer(function(input, output, session) {
     shinyjs::updateColourInput(session = session, inputId = "circBorderCol1", value = "#000000")
     shinyjs::updateColourInput(session = session, inputId = "labCol1", value = "#000000")
     shinyjs::updateColourInput(session = session, inputId = "col2", value = terColors[2])
-    updateTextInput(session = session, inputId = "circBorder1", value = "No")
+    updateTextInput(session = session, inputId = "circBorder2", value = "No")
     shinyjs::updateColourInput(session = session, inputId = "circBorderCol2", value = "#000000")
     shinyjs::updateColourInput(session = session, inputId = "labCol2", value = "#000000")
     shinyjs::updateColourInput(session = session, inputId = "col3", value = terColors[3])
@@ -883,7 +930,7 @@ shinyServer(function(input, output, session) {
     shinyjs::updateColourInput(session = session, inputId = "fillCol1", value = "#FFFFFF")
     
     shinyjs::updateColourInput(session = session, inputId = "col2", value = "#FFFFFF")
-    updateTextInput(session = session, inputId = "circBorder1", value = "Yes")
+    updateTextInput(session = session, inputId = "circBorder2", value = "Yes")
     updateNumericInput(session = session, inputId = "circBorderWd2", value = 4)
     shinyjs::updateColourInput(session = session, inputId = "circBorderCol2", value = "#000000")
     shinyjs::updateColourInput(session = session, inputId = "labCol2", value = "#000000")
@@ -945,11 +992,11 @@ shinyServer(function(input, output, session) {
       updateSelectInput(session = session, inputId = "labType", selected = "0")
       }
     } 
-    shinyjs::updateColourInput(session = session, inputId = "labCol1", value = "#000000")
-    shinyjs::updateColourInput(session = session, inputId = "labCol2", value = "#000000")
-    shinyjs::updateColourInput(session = session, inputId = "labCol3", value = "#000000")
-    shinyjs::updateColourInput(session = session, inputId = "labCol4", value = "#000000")
-    shinyjs::updateColourInput(session = session, inputId = "labCol5", value = "#000000")
+#     shinyjs::updateColourInput(session = session, inputId = "labCol1", value = "#000000")
+#     shinyjs::updateColourInput(session = session, inputId = "labCol2", value = "#000000")
+#     shinyjs::updateColourInput(session = session, inputId = "labCol3", value = "#000000")
+#     shinyjs::updateColourInput(session = session, inputId = "labCol4", value = "#000000")
+#     shinyjs::updateColourInput(session = session, inputId = "labCol5", value = "#000000")
     
   })
   

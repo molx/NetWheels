@@ -1,5 +1,3 @@
-The addition of a Legend is only available for Wheel projections, because it doesn't fit well with the long rectangular shape of the Net projection.
-
 This tab has options to enable/disable the legend, set the labels (useful in case different grouping is used, translations or other preferences) and the legend's position. The Aesthetics tab can be used to specify the font-size and also some advanced parameters regarding the representation of circle patterns on the legend, if necessary.
 
 Note that only groups found in the Sequence will be shown on the legend.

@@ -1,8 +1,8 @@
 name: NetWheels
 account: alanmol
 server: shinyapps.io
-bundleId: 370494
+bundleId: 372410
 url: https://alanmol.shinyapps.io/NetWheels/
-when: 1455157226.59765
+when: 1455423807.61471
 asMultiple: FALSE
 asStatic: FALSE

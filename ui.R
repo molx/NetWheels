@@ -82,7 +82,7 @@ shinyUI(fixedPage(
                                                                  choices = c("Circle", "Square", "Triangle", "Diamond", "Hexagon"), selected = "Circle")
                                               ),
                                               column(6,
-                                                     selectInput(inputId = "shp4", label = "Nonpolar (Hydrophobic)",
+                                                     selectInput(inputId = "shp4", label = "Nonpolar",
                                                                  choices = c("Circle", "Square", "Triangle", "Diamond", "Hexagon"), selected = "Circle")
                                               )
                                             ),
@@ -94,8 +94,8 @@ shinyUI(fixedPage(
                                             ),
                                             fixedRow(
                                               column(6,
-                                                     numericInput(inputId = "circprop", label = "Min/Max Ratio", 
-                                                                  value = 1, min = 0.1, max = 1, step = 0.05)
+                                                     numericInput(inputId = "circprop", label = "First/Last Ratio", 
+                                                                  value = 1, min = 0.1, max = 5, step = 0.05)
                                               ),
                                               column(6,
                                                      numericInput(inputId = "circsize", label = "Size", 
@@ -116,7 +116,7 @@ shinyUI(fixedPage(
                                                      shinyjs::colourInput(inputId = "col3", label = "Polar / Uncharged", value = "green")
                                               ),
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "col4", label = "Nonpolar (Hydrophobic)", value = "yellow")
+                                                     shinyjs::colourInput(inputId = "col4", label = "Nonpolar", value = "yellow")
                                               )
                                             ),
                                             fixedRow(
@@ -212,7 +212,7 @@ shinyUI(fixedPage(
                                             ),
                                             fixedRow(
                                               column(4,
-                                                     selectInput(inputId = "circBorder1", label = "Polar / Acidic",
+                                                     selectInput(inputId = "circBorder2", label = "Polar / Acidic",
                                                                  choices = c("Yes", "No"), selected = "No")
                                               ),
                                               column(4,
@@ -317,7 +317,7 @@ shinyUI(fixedPage(
                                                      shinyjs::colourInput(inputId = "labCol3", label = "Polar / Uncharged", value = "black")
                                               ),
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "labCol4", label = "Nonpolar (Hydrophobic)", value = "black")
+                                                     shinyjs::colourInput(inputId = "labCol4", label = "Nonpolar", value = "black")
                                               )
                                             ),
                                             fixedRow(
@@ -329,8 +329,8 @@ shinyUI(fixedPage(
                                    tabPanel("Position",
                                             fixedRow(
                                               column(4,
-                                                     selectInput(inputId = "numShow", label = "Show", 
-                                                                 choices = c("Yes", "No"), selected = "Yes")
+                                                     selectInput(inputId = "numShow", label = "Show on...", 
+                                                                 choices = c("Wheel", "Net", "Both", "None"), selected = "Wheel")
                                               ),
                                               column(3, 
                                                      numericInput(inputId = "numCex", label = "Font Size", 
@@ -363,14 +363,14 @@ shinyUI(fixedPage(
                                                      shinyjs::colourInput(inputId = "numCol1", label = "Polar / Basic", value = "black")
                                               ),
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "numCol2", label = "Polar / Acid", value = "black")
+                                                     shinyjs::colourInput(inputId = "numCol2", label = "Polar / Acidic", value = "black")
                                               )),
                                             fixedRow(
                                               column(6,
                                                      shinyjs::colourInput(inputId = "numCol3", label = "Polar / Uncharged", value = "black")
                                               ),
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "numCol4", label = "Nonpolar (Hydrophobic)", value = "black")
+                                                     shinyjs::colourInput(inputId = "numCol4", label = "Nonpolar", value = "black")
                                               )
                                             ),
                                             fixedRow(
@@ -437,6 +437,7 @@ shinyUI(fixedPage(
                         tabPanel("Legend",
                                  tabsetPanel(
                                    tabPanel("Position and Labels",
+                                            helpText("Wheel", style = subtitlesStyle),
                                             fixedRow(
                                               column(4,
                                                      selectInput(inputId = "showLeg", label = "Show",
@@ -451,16 +452,43 @@ shinyUI(fixedPage(
                                                                   value = 0.9, min = -2, max = 2, step = 0.01)
                                               )
                                             ),
+                                            helpText("Net", style = subtitlesStyle),
+                                            fixedRow(
+                                              column(4,
+                                                     selectInput(inputId = "showLegNet", label = "Show",
+                                                                 choices = c("Yes", "No"), selected = "Yes")
+                                              ),
+                                              column(4,
+                                                     numericInput(inputId = "legXNet", label = "Relative x",
+                                                                  value = 0, min = -10, max = 10, step = 0.05)
+                                              ),
+                                              column(4,
+                                                     numericInput(inputId = "legYNet", label = "Relative y",
+                                                                  value = -1, min = -15, max = 3, step = 0.05)
+                                              )
+                                            ),
                                             tags$hr(),
-                                            helpText("Legend Labels", style = subtitlesStyle),
-                                            textInput(inputId = "leg1", label = "Polar / Basic Legend",
-                                                      value = "Polar / Basic"),
-                                            textInput(inputId = "leg2", label = "Polar / Acidic Legend",
-                                                      value = "Polar / Acid"),
-                                            textInput(inputId = "leg3", label = "Polar / Uncharged Legend",
-                                                      value = "Polar / Uncharged"),
-                                            textInput(inputId = "leg4", label = "Nonpolar  Legend",
-                                                      value = "Nonpolar (Hydrophobic)"),
+                                            helpText("Labels", style = subtitlesStyle),
+                                            fixedRow(
+                                              column(6,
+                                                     textInput(inputId = "leg1", label = "Polar / Basic",
+                                                      value = "Polar / Basic")
+                                                     ),
+                                              column(6,
+                                                     textInput(inputId = "leg2", label = "Polar / Acidic",
+                                                      value = "Polar / Acid")
+                                                     )
+                                            ),
+                                            fixedRow(
+                                              column(6,textInput(inputId = "leg3", label = "Polar / Uncharged",
+                                                      value = "Polar / Uncharged")
+                                                     
+                                              ),
+                                              column(6,
+                                                     textInput(inputId = "leg4", label = "Nonpolar",
+                                                      value = "Nonpolar")
+                                              )
+                                            ),
                                             textInput(inputId = "leg5", label = "Group 5 Legend",
                                                       value = "Unknown Residue")
                                    ),
@@ -498,59 +526,103 @@ shinyUI(fixedPage(
                                  )
                         ),
                         tabPanel("Groups",
-                                 helpText("Use one-letter code"),
-                                 helpText("Residues main group", style = subtitlesStyle),
-                                 fixedRow(
-                                   column(6,
-                                          textInput(inputId = "grp1", label = "Polar / Basic",
-                                                    value = "RHK")
+                                 tabsetPanel(
+                                   tabPanel("Residues",
+                                            helpText("Use one-letter code"),
+                                            helpText("Residues main group", style = subtitlesStyle),
+                                            fixedRow(
+                                              column(6,
+                                                     textInput(inputId = "grp1", label = "Polar / Basic",
+                                                               value = "RHK")
+                                              ),
+                                              column(6,
+                                                     textInput(inputId = "grp2", label = "Polar / Acidic",
+                                                               value = "DE")
+                                              )
+                                            ),
+                                            fixedRow(
+                                              column(6,
+                                                     textInput(inputId = "grp3", label = "Polar / Uncharged",
+                                                               value = "STNQCU")
+                                              ),
+                                              column(6,
+                                                     textInput(inputId = "grp4", label = "Nonpolar ",
+                                                               value = "AGVILMFYWP")
+                                              )
+                                            ),
+                                            fixedRow(
+                                              column(6,
+                                                     textInput(inputId = "grp5", label = "Group 5",
+                                                               value = "X", width = "165px")
+                                              ),
+                                              column(6,
+                                                     actionButton("grpReset", "Reset to Default", style = "margin-top: 25px")
+                                              )
+                                            ),
+                                            helpText("Residues interactions (Net)", style = subtitlesStyle),
+                                            fixedRow(
+                                              column(6,
+                                                     textInput(inputId = "grpNonpolar", label = "Nonpolar",
+                                                               value = "VILMFYW")
+                                              ),
+                                              column(6,
+                                                     textInput(inputId = "grpHydro", label = "Hydrogen Bond",
+                                                               value = "SNQ")
+                                              )
+                                            ),
+                                            fixedRow(
+                                              column(6,
+                                                     textInput(inputId = "grpAcid", label = "Acid",
+                                                               value = "DE")
+                                              ),
+                                              column(6,
+                                                     textInput(inputId = "grpBasic", label = "Basic",
+                                                               value = "RHK")
+                                              )
+                                            ),
+                                            actionButton("grpBondReset", "Reset to Default")
                                    ),
-                                   column(6,
-                                          textInput(inputId = "grp2", label = "Polar / Acidic",
-                                                    value = "DE")
+                                   tabPanel("Labels",
+                                            fixedRow(
+                                              column(6,
+                                                     textInput(inputId = "grp1Lab", label = "Group 1",
+                                                               value = "Polar / Basic")
+                                              ),
+                                              column(6,
+                                                     textInput(inputId = "grp2Lab", label = "Group 2",
+                                                               value = "Polar / Acidic")
+                                              )
+                                            ),
+                                            fixedRow(
+                                              column(6,
+                                                     textInput(inputId = "grp3Lab", label = "Group 3",
+                                                               value = "Polar / Uncharged")
+                                              ),
+                                              column(6,
+                                                     textInput(inputId = "grp4Lab", label = "Group 4",
+                                                               value = "Nonpolar")
+                                              )
+                                            ),
+                                            fixedRow(
+                                              column(6,
+                                                     textInput(inputId = "grp5Lab", label = "Group 5",
+                                                               value = "Unkown Residue", width = "165px")
+                                              ),
+                                              column(6,
+                                                     actionButton("grpUpdUi", "Update Interface", style = "margin-top: 25px")
+                                              )
+                                            ),
+                                            fixedRow(
+                                              column(6,
+                                                     actionButton("grpLabToLeg", "Copy to Legend", style = "margin-top: 25px")
+                                              ),
+                                              column(6,
+                                                     actionButton("grpLabDefault", "Reset to defaults", style = "margin-top: 25px")
+                                              )
+                                            )
                                    )
-                                 ),
-                                 fixedRow(
-                                   column(6,
-                                          textInput(inputId = "grp3", label = "Polar / Uncharged",
-                                                    value = "STNQCU")
-                                   ),
-                                   column(6,
-                                          textInput(inputId = "grp4", label = "Nonpolar ",
-                                                    value = "AGVILMFYWP")
-                                   )
-                                 ),
-                                 fixedRow(
-                                   column(6,
-                                          textInput(inputId = "grp5", label = "Group 5",
-                                                    value = "X", width = "165px")
-                                   ),
-                                   column(6,
-                                          actionButton("grpReset", "Reset to Default", style = "margin-top: 25px")
-                                   )
-                                 ),
-                                 helpText("Residues interactions (Net)", style = subtitlesStyle),
-                                 fixedRow(
-                                   column(6,
-                                          textInput(inputId = "grpNonpolar", label = "Nonpolar",
-                                                    value = "VILMFYW")
-                                   ),
-                                   column(6,
-                                          textInput(inputId = "grpHydro", label = "Hydrogen Bond",
-                                                    value = "SNQ")
-                                   )
-                                 ),
-                                 fixedRow(
-                                   column(6,
-                                          textInput(inputId = "grpAcid", label = "Acid",
-                                                    value = "DE")
-                                   ),
-                                   column(6,
-                                          textInput(inputId = "grpBasic", label = "Basic",
-                                                    value = "RHK")
-                                   )
-                                 ),
-                                 actionButton("grpBondReset", "Reset to Default")
+                                 )
+                                 
                         ),
                         tabPanel("Title",
                                  #helpText("Adjust the xy postions and top-margin using the 'Wheel' or 'Net' tabs if necessary"),
@@ -917,12 +989,13 @@ shinyUI(fixedPage(
                tabPanel("About",
                         tags$br(),
                         tags$p("Developed by Alan R. Mól, Wagner Fontes, Mariana S. Castro, Universidade de Brasília - Brazil"),
+                        tags$p("This application is available free of charge. If you would like to cite it, please use the following reference:"),
+                        tags$ul(tags$li("Mól, A. R, Castro, M, S. Fontes, W. NetWheels: A web application to create high quality peptide helical wheel and net projections. ... 2016")),
+                        tags$br(),
                         tags$p("To-do list:"),
                         tags$ul(tags$li("Enable polygon size based on physical properties of the residues, like originally used by Dunnill (1968)"),
                                 tags$li("Add legend-support for different shapes. Currently, only colors and patterns are considered.")
-                        ),
-                        tags$p("This application is available free of charge. If you would like to cite it, please use the following reference:"),
-                        tags$ul(tags$li("Mól, A. R, Castro, M, S. Fontes, W. NetWheels: A web application to create high quality peptide helical wheel and net projections. ... 2016"))
+                        )
                ),
                tabPanel("Help",
                         tags$br(),

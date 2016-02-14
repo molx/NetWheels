@@ -1,3 +1,3 @@
-The Guides tab set the lines used to illustrate the order in which the residues are displayed on the projection, and also the possible frame around the figure.
+The Guides tab sets the lines used to illustrate the order in which the residues are displayed on the projection, and also the possible frame around the figure.
 
 The order guides work differently on the Net and Wheel projections. On the Net projection, they follow the residues order in the given peptide. On the Wheel projection, this is accomplished by the Connection Lines (Wheel tab), and the guides represent the order following the circle order. In this case, they are useful when a Spiral Factor greater than 0 is used, to maintain the round characteristic. 

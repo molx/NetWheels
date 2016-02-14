@@ -1,3 +1,8 @@
 A title can be added to both projections, but it's rather limited in terms of length and color.
 
-Positioning on the wheel projection is rather easy, but not so much on the Net projection, since it's size varies according to the number of residues. Regardless, the positions can be adjusted with the x and y selectors of each projection.
+Positioning on the wheel projection is rather easy, but not so much on the Net projection, since its size varies according to the number of residues. 
+
+The position of the title can be adjusted using the x and y inputs, separated for each projection. For the Net projection, the Auto Adjust Position will try to position the title automatically at the top of the image, while also updating the image heigth. 
+
+Both title and image positions can be adjusted if needed to better fit the title. The title position can be adjusted in the relative positioning fields and the images position can be adjusted in the respective padding fields, under the Net or Wheel tabs.
+
