@@ -113,7 +113,8 @@ shinyServer(function(input, output, session) {
     seq <- input$seq
     output$resCount <- renderUI(helpText(seq, style = "font-family:monospace; margin: 0 12px; font-size: 16px; "))
     n <- nchar(seq)
-    counts <- paste0(paste(rep(c(1:9, 0), 10)[1:n], collapse = ""), "(", n, ")")
+    counts <- paste0(paste(rep(c(1:9, 0), 10)[(1:n) + (input$numOffPos %% 10)], collapse = ""), "(", n, ")")
+    
     output$seqMono <- renderUI(helpText(counts,
                                         style = "font-family:monospace; margin: 0 12px; font-size: 16px; "))
   })
@@ -179,8 +180,6 @@ shinyServer(function(input, output, session) {
          xaxt = "n", yaxt = "n", xlab = "", ylab = "",
          xaxs = "i", yaxs = "i", frame.plot = input$showBoxNet == "Yes")
 
-    if (input$netShowLimits == "Yes") abline(v=c(intercept, diameter), lty = 2)
-    
     xymat <- do.call(rbind, lapply(seq_len(n), function(i) {
       if (diameter - nx[i] < x0 && diameter - nx[i] > 0) {
         # Close to right border
@@ -258,9 +257,9 @@ shinyServer(function(input, output, session) {
     } else if (labType == 2) {
       amin3[res]
     } else if (labType == 3) {
-      paste0(res, ptn+input$labOffPos)
+      paste0(res, ptn+input$numOffPos)
     } else if (labType == 4) {
-      ptn+input$labOffPos
+      ptn+input$numOffPos
     }
     
     bondWd <- c(nonpolar = input$bond1Wd, acba = input$bond2Wd, hydro = input$bond3Wd)
@@ -396,6 +395,9 @@ shinyServer(function(input, output, session) {
             y = c(ymax + trans + padtop - 0.05, ymax + trans + padtop - 0.05, min(ny) - trans - padbot, min(ny) - trans-padbot),
             col = "white", border = NA)
     
+    ### Adding vertical cylinder lines
+    
+    if (input$netShowLimits == "Yes") abline(v=c(intercept, diameter), lty = 2)
     
     ### Legend adding code:
     
@@ -690,7 +692,7 @@ shinyServer(function(input, output, session) {
     } else if (labType == 2) {
       amin3[res]
     } else if (labType == 3) {
-      paste0(res, seq_len(nres) + input$labOffPos)
+      paste0(res, seq_len(nres) + input$numOffPos)
     } else if (labType == 4) {
       seq_len(nres)
     }

@@ -290,18 +290,18 @@ shinyUI(fixedPage(
                                               )
                                             ),
                                             fixedRow(
-                                              column(4, 
+                                              column(6, 
                                                      numericInput(inputId = "labOffY", label = "Vertical Offset", 
                                                                   value = 0, min = -3, max = 2, step = 0.1)
                                               ),
-                                              column(4, 
+                                              column(6, 
                                                      numericInput(inputId = "labOffX", label = "Horizontal Offset", 
                                                                   value = 0, min = -2, max = 2, step = 0.1)
-                                              ),
-                                              column(4, 
-                                                     numericInput(inputId = "labOffPos", label = "Position Offset", 
-                                                                  value = 0, min = 0, max = 10000, step = 1)
-                                              )
+                                              )#,
+#                                               column(4, 
+#                                                      numericInput(inputId = "labOffPos", label = "Position Offset", 
+#                                                                   value = 0, min = 0, max = 10000, step = 1)
+#                                              )
                                             ),
                                             tags$hr(),
                                             helpText("Font Color", style = subtitlesStyle),
@@ -726,17 +726,17 @@ shinyUI(fixedPage(
                                               ),
                                               column(6,
                                                      numericInput("netPadBot", "Padding Bottom",
-                                                                  value = 0, min = 0, max = 1, step = 0.01)
+                                                                  value = 0.2, min = 0, max = 1, step = 0.01)
                                               )
                                             ),
                                             fixedRow(
                                               column(4,
                                                      numericInput("netPadL", "Padding Left",
-                                                                  value = 0.1, min = 0, max = 1, step = 0.01)
+                                                                  value = 0, min = 0, max = 1, step = 0.01)
                                               ),
                                               column(4,
                                                      numericInput("netPadR", "Padding Right",
-                                                                  value = 0.1, min = 0, max = 1, step = 0.01)
+                                                                  value = 0, min = 0, max = 1, step = 0.01)
                                               ),
                                               column(4,
                                                      selectInput(inputId = "netShowLimits", label = "Show Border",
