@@ -824,7 +824,7 @@ shinyServer(function(input, output, session) {
   observeEvent(input$grpReset, {
     updateTextInput(session, "grp1", value = "RHK")
     updateTextInput(session, "grp2", value = "DE")
-    updateTextInput(session, "grp3", value = "STNQCU")
+    updateTextInput(session, "grp3", value = "STNQC")
     updateTextInput(session, "grp4", value = "AGVILMFYWP")
     updateTextInput(session, "grp5", value = "X")
   })

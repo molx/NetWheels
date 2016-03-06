@@ -543,7 +543,7 @@ shinyUI(fixedPage(
                                             fixedRow(
                                               column(6,
                                                      textInput(inputId = "grp3", label = "Polar / Uncharged",
-                                                               value = "STNQCU")
+                                                               value = "STNQC")
                                               ),
                                               column(6,
                                                      textInput(inputId = "grp4", label = "Nonpolar ",
