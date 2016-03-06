@@ -831,7 +831,7 @@ shinyServer(function(input, output, session) {
   
   observeEvent(input$grpBondReset, {
     updateTextInput(session, "grpNonpolar", value = "VILMFYW")
-    updateTextInput(session, "grpHydro", value = "SNQ")
+    updateTextInput(session, "grpHydro", value = "STNQY")
     updateTextInput(session, "grpAcid", value = "DE")
     updateTextInput(session, "grpBasic", value = "RHK")
   })
