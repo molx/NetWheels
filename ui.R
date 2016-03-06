@@ -567,7 +567,7 @@ shinyUI(fixedPage(
                                               ),
                                               column(6,
                                                      textInput(inputId = "grpHydro", label = "Hydrogen Bond",
-                                                               value = "SNQ")
+                                                               value = "STNQY")
                                               )
                                             ),
                                             fixedRow(
