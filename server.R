@@ -800,7 +800,7 @@ shinyServer(function(input, output, session) {
   },
   height = 600, width = imgWd)
   
-  #shinyjs::disable("wheelsize")
+  #shinyjs::disable("period")
   
   # Use sequence as title
   observeEvent(input$titleSeq, {

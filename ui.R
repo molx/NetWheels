@@ -1,5 +1,5 @@
 library(shiny)
-#library(shinyjs)
+library(shinyjs)
 
 ## Note: This objects are not reloaded when the 'Reload App' button is clicked inside RStudio.
 subtitlesStyle <- "font-weight: bold; color: #000000;"
@@ -840,12 +840,12 @@ shinyUI(fixedPage(
                                                       selected = "Clockwise")
                                    ),
                                    column(3,
-                                          numericInput(inputId = "period", label = "Period", 
-                                                       value = 18, min = 5, max = 30, step = 1)
+                                          disabled(numericInput(inputId = "period", label = "Period", 
+                                                       value = 18, min = 5, max = 30, step = 1))
                                    ),
                                    column(3,
-                                          numericInput(inputId = "perStep", label = "Step", 
-                                                       value = 4, min = 1, max = 10, step = 1)
+                                          disabled(numericInput(inputId = "perStep", label = "Step", 
+                                                       value = 4, min = 1, max = 10, step = 1))
                                    )
                                  ),
                                  helpText("Figure Size", style = subtitlesStyle),
