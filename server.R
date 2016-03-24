@@ -642,7 +642,7 @@ shinyServer(function(input, output, session) {
     
     shapes <- shp[fills]
     
-    for (i in nMin) {
+    for (i in 1:nres) {
       bwd <- bordersWd[i]
       #if (is.na(bwd)) next # Avoiding errors with invalid lwd. NA throwns an error, skip because there's no circle to plot
       bordersWd <- ifelse(bordersWd == 0, 1, bordersWd)
