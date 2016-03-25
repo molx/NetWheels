@@ -1,0 +1,17 @@
+{
+    "contents" : ".httr-oauth\n.Rproj.user\\**\nrsconnect\\**",
+    "created" : 1458948126590.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2181135361",
+    "id" : "FD90FB1A",
+    "lastKnownWriteTime" : 1458948267,
+    "path" : "F:/GitHub/NetWheels/.gitignore",
+    "project_path" : ".gitignore",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "gitignore"
+}

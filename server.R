@@ -532,7 +532,7 @@ shinyServer(function(input, output, session) {
     # acos(0)+2*pi faz o circulo dar uma volta completa
     # nres + 1 é utilizado pois o ultimo ponto sempre coincide com o primeiro. Criamos um a mais e depois removemos o excedente.
     
-    nMin <- if(nres < 18) 1:18 else 1:nres
+    nMin <- if(nres < nHel) 1:nHel else 1:nres
     
     angs <- rep(angs, nHelicals)[nMin]
     
