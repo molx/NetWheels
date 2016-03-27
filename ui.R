@@ -49,7 +49,7 @@ shinyUI(fixedPage(
              helpText("Type or paste the peptide sequence on the \"Sequence\" field. Navigate the through the tabs below to adjust several configurations of the projection. Check the \"Help\" tag above the image for detailed instructions."),
              #
              seqInputRow(inputId = "seq", label = "Sequence", value = "DLISGLGQRNVXKVLTETGLP", #DLISGIGRVXKVLTTGLP
-                       width = "100%"),#, style = "margin-bottom: 0px;"),
+                         width = "100%"),#, style = "margin-bottom: 0px;"),
              #textInput(inputId = "seq", label = "Sequence", value = "DLISGLGQRNVXKVLTETGLP", width = "100%"),
              uiOutput("resCount"),
              uiOutput("seqMono"),
@@ -298,10 +298,10 @@ shinyUI(fixedPage(
                                                      numericInput(inputId = "labOffX", label = "Horizontal Offset", 
                                                                   value = 0, min = -2, max = 2, step = 0.1)
                                               )#,
-#                                               column(4, 
-#                                                      numericInput(inputId = "labOffPos", label = "Position Offset", 
-#                                                                   value = 0, min = 0, max = 10000, step = 1)
-#                                              )
+                                              #                                               column(4, 
+                                              #                                                      numericInput(inputId = "labOffPos", label = "Position Offset", 
+                                              #                                                                   value = 0, min = 0, max = 10000, step = 1)
+                                              #                                              )
                                             ),
                                             tags$hr(),
                                             helpText("Font Color", style = subtitlesStyle),
@@ -472,21 +472,21 @@ shinyUI(fixedPage(
                                             fixedRow(
                                               column(6,
                                                      textInput(inputId = "leg1", label = "Polar / Basic",
-                                                      value = "Polar / Basic")
-                                                     ),
+                                                               value = "Polar / Basic")
+                                              ),
                                               column(6,
                                                      textInput(inputId = "leg2", label = "Polar / Acidic",
-                                                      value = "Polar / Acid")
-                                                     )
+                                                               value = "Polar / Acid")
+                                              )
                                             ),
                                             fixedRow(
                                               column(6,textInput(inputId = "leg3", label = "Polar / Uncharged",
-                                                      value = "Polar / Uncharged")
+                                                                 value = "Polar / Uncharged")
                                                      
                                               ),
                                               column(6,
                                                      textInput(inputId = "leg4", label = "Nonpolar",
-                                                      value = "Nonpolar")
+                                                               value = "Nonpolar")
                                               )
                                             ),
                                             textInput(inputId = "leg5", label = "Group 5 Legend",
@@ -747,11 +747,11 @@ shinyUI(fixedPage(
                                             fixedRow(column(6,
                                                             numericInput("netProp", "Proportion Factor",
                                                                          value = 2.8, min = 0.05, max = 10, step = 0.05)
-                                                            ),
-                                                     column(6,
-                                                            numericInput("netWidth", "Figure Extra Width",
-                                                                         value = 240, min = 0, max = 500, step = 5)
-                                                            ))
+                                            ),
+                                            column(6,
+                                                   numericInput("netWidth", "Figure Extra Width",
+                                                                value = 240, min = 0, max = 500, step = 5)
+                                            ))
                                             
                                    ),
                                    tabPanel("Interactions",
@@ -841,7 +841,7 @@ shinyUI(fixedPage(
                                    ),
                                    column(3,
                                           numericInput(inputId = "period", label = "Period", 
-                                                                         value = 18, min = 5, max = 30, step = 1)
+                                                       value = 18, min = 5, max = 30, step = 1)
                                    ),
                                    column(3,
                                           numericInput(inputId = "perStep", label = "Step", 
@@ -959,34 +959,34 @@ shinyUI(fixedPage(
       ),
       column(8,
              tabsetPanel(
+               tabPanel("Wheel",
+                        checkboxInput("autoWheel", "Automatic Preview", value = FALSE),
+                        #conditionalPanel(condition = "input.autoWheel == true",
+                        plotOutput(outputId = "helicalPlot", height = "600px", width = "600px")#,
+                        #                         tags$hr(),
+                        #                         helpText("Export Options", style = subtitlesStyle),
+                        #                         fixedRow(
+                        #                           column(4,
+                        #                                  selectInput(inputId = "expFormat", label = "Format",
+                        #                                              choices = c("PNG", "TIFF (lzw)", "PDF", "JPG"), selected = "PNG")
+                        #                           ),
+                        #                           column(4,
+                        #                                  selectInput(inputId = "expDPI", label = "DPI",
+                        #                                              choices = c(72, 150, 300, 600), selected = "72")
+                        #                           ),
+                        #                           column(4,
+                        #                                  downloadButton("plotDown", "Save Image")
+                        #                           ),
+                        #                           tags$style(type='text/css', "#plotDown { margin-top: 25px;}")
+                        #                         )
+                        #)
+               ),
                tabPanel("Net",
                         checkboxInput("autoNet", "Automatic Preview", value = FALSE),
                         plotOutput(outputId = "netPlot", 
                                    height = "600px", width = "300px")
                ),
-               tabPanel("Wheel",
-                        checkboxInput("autoWheel", "Automatic Preview", value = FALSE),
-                        #conditionalPanel(condition = "input.autoWheel == true",
-                        plotOutput(outputId = "helicalPlot", height = "600px", width = "600px")#,
-#                         tags$hr(),
-#                         helpText("Export Options", style = subtitlesStyle),
-#                         fixedRow(
-#                           column(4,
-#                                  selectInput(inputId = "expFormat", label = "Format",
-#                                              choices = c("PNG", "TIFF (lzw)", "PDF", "JPG"), selected = "PNG")
-#                           ),
-#                           column(4,
-#                                  selectInput(inputId = "expDPI", label = "DPI",
-#                                              choices = c(72, 150, 300, 600), selected = "72")
-#                           ),
-#                           column(4,
-#                                  downloadButton("plotDown", "Save Image")
-#                           ),
-#                           tags$style(type='text/css', "#plotDown { margin-top: 25px;}")
-#                         )
-                        #)
-               ),
-               tabPanel("About",
+               tabPanel("About"
                         tags$br(),
                         tags$p("Developed by Alan R. Mól, Wagner Fontes, Mariana S. Castro."),
                         HTML("<p><a href=\"http://lbqp.unb.br\" target=\"_blank\">Laboratório de Bioquímica e Química de Proteínas (LBQP)</a> - Universidade de Brasília - Brazil</p>"),
