@@ -986,7 +986,7 @@ shinyUI(fixedPage(
                         plotOutput(outputId = "netPlot", 
                                    height = "600px", width = "300px")
                ),
-               tabPanel("About"
+               tabPanel("About",
                         tags$br(),
                         tags$p("Developed by Alan R. Mól, Wagner Fontes, Mariana S. Castro."),
                         HTML("<p><a href=\"http://lbqp.unb.br\" target=\"_blank\">Laboratório de Bioquímica e Química de Proteínas (LBQP)</a> - Universidade de Brasília - Brazil</p>"),
