@@ -391,8 +391,8 @@ shinyServer(function(input, output, session) {
     
     ### Adding a white rectangular to cover residues plotted outside of the region of interest
     
-    polygon(x = c(diameter + marr, diameter + marr + netwd - 0.05, diameter + marr + netwd - 0.05, diameter + marr),
-            y = c(ymax + trans + padtop - 0.05, ymax + trans + padtop - 0.05, min(ny) - trans - padbot, min(ny) - trans-padbot),
+    polygon(x = c(diameter + marr, diameter + marr + netwd , diameter + marr + netwd , diameter + marr),
+            y = c(ymax + trans + padtop , ymax + trans + padtop , min(ny) - trans - padbot, min(ny) - trans-padbot),
             col = "white", border = NA)
     
     ### Adding vertical cylinder lines
