@@ -4,7 +4,7 @@ library(shiny)
 ## Note: This objects are not reloaded when the 'Reload App' button is clicked inside RStudio.
 subtitlesStyle <- "font-weight: bold; color: #000000;"
 
-ltys <- c(Solid = 1, Dashed = "33", Dotted = "12", `Dot-dash` = "2393", `Long dash` = 5, `Two dash` = 6)
+ltys <- list(Solid = 1, Dashed = "33", Dotted = "12", `Dot-dash` = "2393", `Long dash` = 5, `Two dash` = 6)
 
 # Prepairing help
 tabs <- c("Polygons", "Labels", "Guides", "Legend", "Groups", "Title", "Net", "Wheel", "Style", "Tools", "Exporting")

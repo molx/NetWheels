@@ -313,8 +313,8 @@ shinyServer(function(input, output, session) {
           ext2 <- max
         }
         
-        lty3 <- if(nchar(bondTy[bond3type]) > 1) bondTy[bond3type] else as.numeric(bondTy[bond3type])
-        lty4 <- if(nchar(bondTy[bond4type]) > 1) bondTy[bond4type] else as.numeric(bondTy[bond4type])
+        lty3 <- if(bond3 && nchar(bondTy[bond3type]) > 1) bondTy[bond3type] else as.numeric(bondTy[bond3type])
+        lty4 <- if(bond4 && nchar(bondTy[bond4type]) > 1) bondTy[bond4type] else as.numeric(bondTy[bond4type])
         
         if (bond3) {
           segments(x0 = ptx[i], y0 = pty[i]-l,
@@ -391,8 +391,8 @@ shinyServer(function(input, output, session) {
     
     ### Adding a white rectangular to cover residues plotted outside of the region of interest
     
-    polygon(x = c(diameter + marr, diameter + marr + netwd , diameter + marr + netwd , diameter + marr),
-            y = c(ymax + trans + padtop , ymax + trans + padtop , min(ny) - trans - padbot, min(ny) - trans-padbot),
+    polygon(x = c(diameter + marr, diameter + marr + netwd - 0.05, diameter + marr + netwd - 0.05, diameter + marr),
+            y = c(ymax + trans + padtop - 0.05, ymax + trans + padtop - 0.05, min(ny) - trans - padbot, min(ny) - trans-padbot),
             col = "white", border = NA)
     
     ### Adding vertical cylinder lines
@@ -532,7 +532,7 @@ shinyServer(function(input, output, session) {
     # acos(0)+2*pi faz o circulo dar uma volta completa
     # nres + 1 é utilizado pois o ultimo ponto sempre coincide com o primeiro. Criamos um a mais e depois removemos o excedente.
     
-    nMin <- if(nres < nHel) 1:nHel else 1:nres
+    nMin <- if(nres < 18) 1:18 else 1:nres
     
     angs <- rep(angs, nHelicals)[nMin]
     
