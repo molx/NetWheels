@@ -106,22 +106,22 @@ shinyUI(fixedPage(
                                    tabPanel("Colors",
                                             fixedRow(
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "col1", label = "Polar / Basic", value = "red")
+                                                     colourpicker:: colourInput(inputId = "col1", label = "Polar / Basic", value = "red")
                                               ),
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "col2", label = "Polar / Acidic", value = "blue")
+                                                     colourpicker:: colourInput(inputId = "col2", label = "Polar / Acidic", value = "blue")
                                               )),
                                             fixedRow(
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "col3", label = "Polar / Uncharged", value = "green")
+                                                     colourpicker:: colourInput(inputId = "col3", label = "Polar / Uncharged", value = "green")
                                               ),
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "col4", label = "Nonpolar", value = "yellow")
+                                                     colourpicker:: colourInput(inputId = "col4", label = "Nonpolar", value = "yellow")
                                               )
                                             ),
                                             fixedRow(
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "col5", label = "Unknown Residue",
+                                                     colourpicker:: colourInput(inputId = "col5", label = "Unknown Residue",
                                                                           value = "white")
                                               )
                                             )
@@ -139,7 +139,7 @@ shinyUI(fixedPage(
                                                                   value = 3, min = 1, max = 21, step = 2)
                                               ),
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "fillCol1", label = "Line Color", value = "gray30")
+                                                     colourpicker:: colourInput(inputId = "fillCol1", label = "Line Color", value = "gray30")
                                               )
                                             ),
                                             fixedRow(
@@ -152,7 +152,7 @@ shinyUI(fixedPage(
                                                                   value = 3, min = 1, max = 21, step = 2)
                                               ),
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "fillCol2", label = "Line Color", value = "gray30")
+                                                     colourpicker:: colourInput(inputId = "fillCol2", label = "Line Color", value = "gray30")
                                               )
                                             ),
                                             fixedRow(
@@ -165,7 +165,7 @@ shinyUI(fixedPage(
                                                                   value = 3, min = 1, max = 21, step = 2)
                                               ),
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "fillCol3", label = "Line Color", value = "gray30")
+                                                     colourpicker:: colourInput(inputId = "fillCol3", label = "Line Color", value = "gray30")
                                               )
                                             ),
                                             fixedRow(
@@ -178,7 +178,7 @@ shinyUI(fixedPage(
                                                                   value = 3, min = 1, max = 21, step = 2)
                                               ),
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "fillCol4", label = "Line Color", value = "gray30")
+                                                     colourpicker:: colourInput(inputId = "fillCol4", label = "Line Color", value = "gray30")
                                               )
                                             ),
                                             fixedRow(
@@ -191,7 +191,7 @@ shinyUI(fixedPage(
                                                                   value = 4, min = 1, max = 21, step = 2)
                                               ),
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "fillCol5", label = "Line Color", value = "gray30")
+                                                     colourpicker:: colourInput(inputId = "fillCol5", label = "Line Color", value = "gray30")
                                               )
                                             )
                                    ),
@@ -202,7 +202,7 @@ shinyUI(fixedPage(
                                                                  choices = c("Yes", "No"), selected = "No")
                                               ),
                                               column(4,
-                                                     shinyjs::colourInput(inputId = "circBorderCol1",
+                                                     colourpicker:: colourInput(inputId = "circBorderCol1",
                                                                           label = "Color", value = "#000000")
                                               ),
                                               column(4,
@@ -216,7 +216,7 @@ shinyUI(fixedPage(
                                                                  choices = c("Yes", "No"), selected = "No")
                                               ),
                                               column(4,
-                                                     shinyjs::colourInput(inputId = "circBorderCol2",
+                                                     colourpicker:: colourInput(inputId = "circBorderCol2",
                                                                           label = "Color", value = "#000000")
                                               ),
                                               column(4,
@@ -230,7 +230,7 @@ shinyUI(fixedPage(
                                                                  choices = c("Yes", "No"), selected = "No")
                                               ),
                                               column(4,
-                                                     shinyjs::colourInput(inputId = "circBorderCol3",
+                                                     colourpicker:: colourInput(inputId = "circBorderCol3",
                                                                           label = "Color", value = "#000000")
                                               ),
                                               column(4,
@@ -244,7 +244,7 @@ shinyUI(fixedPage(
                                                                  choices = c("Yes", "No"), selected = "No")
                                               ),
                                               column(4,
-                                                     shinyjs::colourInput(inputId = "circBorderCol4",
+                                                     colourpicker:: colourInput(inputId = "circBorderCol4",
                                                                           label = "Color", value = "#000000")
                                               ),
                                               column(4,
@@ -258,7 +258,7 @@ shinyUI(fixedPage(
                                                                  choices = c("Yes", "No"), selected = "Yes")
                                               ),
                                               column(4,
-                                                     shinyjs::colourInput(inputId = "circBorderCol5",
+                                                     colourpicker:: colourInput(inputId = "circBorderCol5",
                                                                           label = "Color", value = "#000000")
                                               ),
                                               column(4,
@@ -307,22 +307,22 @@ shinyUI(fixedPage(
                                             helpText("Font Color", style = subtitlesStyle),
                                             fixedRow(
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "labCol1", label = "Polar / Basic", value = "black")
+                                                     colourpicker:: colourInput(inputId = "labCol1", label = "Polar / Basic", value = "black")
                                               ),
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "labCol2", label = "Polar / Acidic", value = "white")
+                                                     colourpicker:: colourInput(inputId = "labCol2", label = "Polar / Acidic", value = "white")
                                               )),
                                             fixedRow(
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "labCol3", label = "Polar / Uncharged", value = "black")
+                                                     colourpicker:: colourInput(inputId = "labCol3", label = "Polar / Uncharged", value = "black")
                                               ),
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "labCol4", label = "Nonpolar", value = "black")
+                                                     colourpicker:: colourInput(inputId = "labCol4", label = "Nonpolar", value = "black")
                                               )
                                             ),
                                             fixedRow(
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "labCol5", label = "Unknown Residue", value = "black")
+                                                     colourpicker:: colourInput(inputId = "labCol5", label = "Unknown Residue", value = "black")
                                               )
                                             )
                                    ),
@@ -360,22 +360,22 @@ shinyUI(fixedPage(
                                             helpText("Font Color", style = subtitlesStyle),
                                             fixedRow(
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "numCol1", label = "Polar / Basic", value = "black")
+                                                     colourpicker:: colourInput(inputId = "numCol1", label = "Polar / Basic", value = "black")
                                               ),
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "numCol2", label = "Polar / Acidic", value = "black")
+                                                     colourpicker:: colourInput(inputId = "numCol2", label = "Polar / Acidic", value = "black")
                                               )),
                                             fixedRow(
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "numCol3", label = "Polar / Uncharged", value = "black")
+                                                     colourpicker:: colourInput(inputId = "numCol3", label = "Polar / Uncharged", value = "black")
                                               ),
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "numCol4", label = "Nonpolar", value = "black")
+                                                     colourpicker:: colourInput(inputId = "numCol4", label = "Nonpolar", value = "black")
                                               )
                                             ),
                                             fixedRow(
                                               column(6,
-                                                     shinyjs::colourInput(inputId = "numCol5", label = "Unknown Residue", value = "black")
+                                                     colourpicker:: colourInput(inputId = "numCol5", label = "Unknown Residue", value = "black")
                                               )
                                             )
                                    )
@@ -768,7 +768,7 @@ shinyUI(fixedPage(
                                                                   value = 3, min = 0, max = 10, step = 1)
                                               ),
                                               column(5,
-                                                     shinyjs::colourInput(inputId = "bond1Col", label = "Color",
+                                                     colourpicker:: colourInput(inputId = "bond1Col", label = "Color",
                                                                           value = "black")
                                               )
                                             ),
@@ -783,7 +783,7 @@ shinyUI(fixedPage(
                                                                   value = 3, min = 0, max = 10, step = 1)
                                               ),
                                               column(5,
-                                                     shinyjs::colourInput(inputId = "bond2Col", label = "Color",
+                                                     colourpicker:: colourInput(inputId = "bond2Col", label = "Color",
                                                                           value = "black")
                                               )
                                             ),
@@ -798,7 +798,7 @@ shinyUI(fixedPage(
                                                                   value = 3, min = 0, max = 10, step = 1)
                                               ),
                                               column(5,
-                                                     shinyjs::colourInput(inputId = "bond3Col", label = "Color",
+                                                     colourpicker:: colourInput(inputId = "bond3Col", label = "Color",
                                                                           value = "black")
                                               )
                                             )
@@ -991,7 +991,7 @@ shinyUI(fixedPage(
                         tags$p("Developed by Alan R. Mól, Wagner Fontes, Mariana S. Castro."),
                         HTML("<p><a href=\"http://lbqp.unb.br\" target=\"_blank\">Laboratório de Bioquímica e Química de Proteínas (LBQP)</a> - Universidade de Brasília - Brazil</p>"),
                         tags$p("This application is available free of charge. If you would like to cite it, please use the following reference:"),
-                        tags$ul(tags$li("Mól, A. R, Castro, M, S. Fontes, W. NetWheels: A web application to create high quality peptide helical wheel and net projections. ... 2016")),
+                        HTML("<p><a href=\"https://www.biorxiv.org/content/early/2018/09/14/416347\" target=\"_blank\">Mól, A. R, Castro, M, S. Fontes, W. NetWheels: A web application to create high quality peptide helical wheel and net projections. bioRxiv 416347; doi: https://doi.org/10.1101/416347 (preprint)</a></p>"),
                         tags$br(),
                         tags$p("To-do list:"),
                         tags$ul(tags$li("Enable polygon size based on physical properties of the residues, like originally used by Dunnill (1968)"),
