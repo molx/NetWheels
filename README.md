@@ -11,9 +11,9 @@ These instructions will get you a copy of the project up and running on your loc
 * R environment
 * RStudio
 * R Packages:
-** shiny
-** shinyjs
-** colourPicker
+  * shiny
+  * shinyjs
+  * colourPicker
 
 ### Running
 
@@ -38,4 +38,4 @@ NetWheels: A web application to create high quality peptide helical wheel and ne
 A.R. Mól, M.S. Castro, W. Fontes
 bioRxiv 416347; doi: https://doi.org/10.1101/416347
 
-[https://www.biorxiv.org/content/early/2018/09/14/416347\](https://www.biorxiv.org/content/early/2018/09/14/416347\)
+[https://www.biorxiv.org/content/early/2018/09/14/416347](https://www.biorxiv.org/content/early/2018/09/14/416347)
