@@ -22,6 +22,8 @@ seqInputRow <- function(inputId, label, value = "", width) {
 
 shinyUI(fixedPage(
   tags$head(
+    HTML("<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-60942909-3\"></script>"),
+    includeScript("google_analytics.js"),
     tags$style(HTML("
                     hr {
                           margin: 0;
