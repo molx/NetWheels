@@ -13,11 +13,15 @@ These instructions will get you a copy of the project up and running on your loc
 * R Packages:
   * shiny
   * shinyjs
-  * colourPicker
+  * colourpicker
+  
+```R
+install.packages(c("shiny", "shinyjs", "colourpicker"))
+```
 
 ### Running
 
-Simply open the `server.R` or `ui.R` file in RStudio and then run the Shiny Project.
+Simply open the `server.R` or `ui.R` file in RStudio and then click on the button to run the Shiny Project.
 
 
 ### Shiny Server
