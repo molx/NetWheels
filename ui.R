@@ -994,11 +994,12 @@ shinyUI(fixedPage(
                         HTML("<p><a href=\"http://lbqp.unb.br\" target=\"_blank\">Laboratório de Bioquímica e Química de Proteínas (LBQP)</a> - Universidade de Brasília - Brazil</p>"),
                         tags$p("This application is available free of charge. If you would like to cite it, please use the following reference:"),
                         HTML("<p><a href=\"https://www.biorxiv.org/content/early/2018/09/14/416347\" target=\"_blank\">Mól, A. R, Castro, M, S. Fontes, W. NetWheels: A web application to create high quality peptide helical wheel and net projections. bioRxiv 416347; doi: https://doi.org/10.1101/416347 (preprint)</a></p>"),
-                        tags$br(),
-                        tags$p("To-do list:"),
-                        tags$ul(tags$li("Enable polygon size based on physical properties of the residues, like originally used by Dunnill (1968)"),
-                                tags$li("Add legend-support for different shapes. Currently, only colors and patterns are considered.")
-                        )
+                        HTML("<p>Source code, local installation instructions and other information can be found on <a href=\"https://github.com/molx/NetWheels\">Github</a>."),
+                        tags$br()#,
+                        #tags$p("To-do list:"),
+                        #tags$ul(tags$li("Enable polygon size based on physical properties of the residues, like originally used by Dunnill (1968)"),
+                               # tags$li("Add legend-support for different shapes. Currently, only colors and patterns are considered.")
+                        #)
                ),
                tabPanel("Help",
                         tags$br(),
