@@ -50,9 +50,10 @@ shinyUI(fixedPage(
       column(4,
              helpText("Type or paste the peptide sequence on the \"Sequence\" field. Navigate the through the tabs below to adjust several configurations of the projection. Check the \"Help\" tag above the image for detailed instructions."),
              #
-             seqInputRow(inputId = "seq", label = "Sequence", value = "DLISGLGQRNVXKVLTETGLP", #QGAMNKALELFRKDI
-                         width = "100%"),#, style = "margin-bottom: 0px;"),
-             #textInput(inputId = "seq", label = "Sequence", value = "DLISGLGQRNVXKVLTETGLP", width = "100%"),
+             #seqInputRow(inputId = "seq", label = "Sequence", value = "DLISGLGQRNVXKVLTETGLP", #QGAMNKALELFRKDI
+             #            width = "100%"),#, style = "margin-bottom: 0px;"),
+             #seqInputRow uses shinyjs and apparently it broke with some update, reverted to regular input in 2024
+             textInput(inputId = "seq", label = "Sequence", value = "DLISGLGQRNVXKVLTETGLP", width = "100%"),
              uiOutput("resCount"),
              uiOutput("seqMono"),
              #uiOutput("resNumber"),

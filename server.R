@@ -496,7 +496,7 @@ shinyServer(function(input, output, session) {
     }
     
     # Reading the pepseq
-    pepSeq <- input$seq 
+    pepSeq <- input$seq
     
     if ((nchar(gsub("[A-Z]", "", pepSeq))/nchar(gsub("[a-z]", "", pepSeq))) == 2) {
       # Tries to detect 3-letter code and convert to 1-letter
@@ -785,7 +785,7 @@ shinyServer(function(input, output, session) {
   #getSeq <- reactive(input$seq)
   
   output$helicalPlot <- renderPlot({
-    # The auto option is disbled by default to avoid unecessary plot creation 
+    # The auto option is disabled by default to avoid unnecessary plot creation 
     # when another projection is being tested, since this is rather slow
     # and require considerable resources when online
     if(input$autoWheel || is.null(lastWheel)) {
