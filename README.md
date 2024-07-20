@@ -38,8 +38,6 @@ If you wish to host it yourself, please see the instructions for the installatio
 
 If you use NetWheels and wish to cite it, please use the following:
 
-NetWheels: A web application to create high quality peptide helical wheel and net projections
-A.R. Mól, M.S. Castro, W. Fontes
-bioRxiv 416347; doi: https://doi.org/10.1101/416347
+Mól AR, Castro MS, Fontes W. NetWheels: A Web Application to Create High Quality Peptide Helical Wheel and Net Projections. Journal of Bioinformatics and Systems Biology. 7 (2024): 98-100.
 
-[https://www.biorxiv.org/content/early/2018/09/14/416347](https://www.biorxiv.org/content/early/2018/09/14/416347)
+[https://doi.org/10.26502/jbsb.5107082] (https://doi.org/10.26502/jbsb.5107082)

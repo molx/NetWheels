@@ -993,7 +993,7 @@ shinyUI(fixedPage(
                         tags$p("Developed by Alan R. Mól, Wagner Fontes, Mariana S. Castro."),
                         HTML("<p><a href=\"http://lbqp.unb.br\" target=\"_blank\">Laboratório de Bioquímica e Química de Proteínas (LBQP)</a> - Universidade de Brasília - Brazil</p>"),
                         tags$p("This application is available free of charge. If you would like to cite it, please use the following reference:"),
-                        HTML("<p><a href=\"https://www.biorxiv.org/content/early/2018/09/14/416347\" target=\"_blank\">Mól, A. R, Castro, M, S. Fontes, W. NetWheels: A web application to create high quality peptide helical wheel and net projections. bioRxiv 416347; doi: https://doi.org/10.1101/416347 (preprint)</a></p>"),
+                        HTML("<p><a href=\"https://doi.org/10.26502/jbsb.5107082\" target=\"_blank\">Mól AR, Castro MS, Fontes W. NetWheels: A Web Application to Create High Quality Peptide Helical Wheel and Net Projections. Journal of Bioinformatics and Systems Biology. 7 (2024): 98-100; doi: https://doi.org/10.1101/416347</a></p>"),
                         HTML("<p>Source code, local installation instructions and other information can be found on <a href=\"https://github.com/molx/NetWheels\">Github</a>."),
                         tags$br()#,
                         #tags$p("To-do list:"),
