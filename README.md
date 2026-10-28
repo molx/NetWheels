@@ -21,7 +21,7 @@ install.packages(c("shiny", "shinyjs", "colourpicker"))
 
 ### Running
 
-Simply open the `server.R` or `ui.R` file in RStudio and then click on the button to run the Shiny Project.
+Simply open the `app.R` file in RStudio and then click on the button to run the Shiny Project.
 
 
 ### Shiny Server
