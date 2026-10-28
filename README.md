@@ -1,6 +1,6 @@
 # NetWheels
 
-NetWheels is a a web application to create high quality peptide helical wheel and net projections. It is usually availabe at our lab server at [http://lbqp.unb.br/NetWheels](http://lbqp.unb.br/NetWheels). If the server is not available or if you want to run it locally, you can download the source code from this repository.
+NetWheels is a a web application to create high quality peptide helical wheel and net projections. It is now available online [https://molx.github.io/NetWheels](here). It is also usually available at our lab server at [http://lbqp.unb.br/NetWheels](http://lbqp.unb.br/NetWheels). If neither options work or if you want to run it locally, you can download the source code from this repository.
 
 ## Getting Started
 
