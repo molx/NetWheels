@@ -1,1 +1,0 @@
-helpers.installPackages("shinyjs", "colourpicker")

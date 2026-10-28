@@ -22,14 +22,13 @@ jobs:
         with:
           use-public-rspm: true
 
-      - name: Install httpuv and shinylive
+      - name: Install dependencies
         run: |
-          install.packages(c("httpuv", "shinylive"))
+          install.packages(c("httpuv", "shinylive", "shiny", "shinyjs", "colourpicker"))
         shell: Rscript {0}
 
       - name: Build Shinylive App
         run: |
-          # Export the current directory ('.') to the '_site' directory
           shinylive::export(appdir = ".", destdir = "_site")
         shell: Rscript {0}
 
